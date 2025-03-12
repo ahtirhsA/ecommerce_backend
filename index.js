@@ -581,7 +581,7 @@ app.post('/login',async (req,res)=>{
     }
 }
 catch(e){
-    res.status(500).json({ message: e }); 
+    res.status(500).json({ message: `Internal server error ${e.message}` }); 
 }
 
 })
