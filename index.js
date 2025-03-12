@@ -3,6 +3,7 @@ const app=express()
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 require('dotenv').config();
+
 const upload = multer({ dest: './uploads/' });
 
 
@@ -551,6 +552,7 @@ app.post('/login',async (req,res)=>{
       
     const {email,password}=req.body
 
+
     const regUser=`
        SELECT * FROM People WHERE email=?;
     `
@@ -579,7 +581,7 @@ app.post('/login',async (req,res)=>{
     }
 }
 catch(e){
-    res.status(500).json({ message: "Internal server error" }); 
+    res.status(500).json({ message: e }); 
 }
 
 })
